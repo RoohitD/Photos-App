@@ -9,20 +9,24 @@
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
 
-<SplitPane dividerPositions="0.2844251336898395" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/19">
+<SplitPane dividerPositions="0.2844251336898395" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #222222;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
   <items>
     <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
          <children>
-            <AnchorPane prefHeight="398.0" prefWidth="167.0">
+            <AnchorPane prefHeight="398.0" prefWidth="167.0" style="-fx-background-color: #222222;">
                <children>
-                  <Button id="main-upload" layoutX="22.0" layoutY="14.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="122.0" text="upload" />
-                  <TextField id="main-search" cacheShape="false" layoutX="22.0" layoutY="49.0" prefHeight="26.0" prefWidth="122.0" promptText="search" style="-fx-background-color: ; -fx-border-radius: 5;" />
-                  <ListView id="listView" layoutX="-2.0" layoutY="100.0" prefHeight="122.0" prefWidth="167.0" />
-                  <Button id="main-Create" layoutX="30.0" layoutY="234.0" mnemonicParsing="false" prefHeight="15.0" prefWidth="104.0" text="create" />
-                  <Button id="main-delete" layoutX="32.0" layoutY="266.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="104.0" text="delete" />
-                  <Button id="main-edit" layoutX="30.0" layoutY="298.0" mnemonicParsing="false" prefHeight="11.0" prefWidth="104.0" text="edit" />
-                  <Button id="main logout" layoutX="32.0" layoutY="349.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="104.0" text="log out" />
+                  <Button id="main-upload" layoutX="22.0" layoutY="6.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="122.0" style="-fx-background-color: #5B10FB; -fx-background-radius: 10;" text="upload" textFill="WHITE" />
+                  <TextField id="main-search" cacheShape="false" layoutX="3.0" layoutY="49.0" prefHeight="26.0" prefWidth="161.0" promptText="search" style="-fx-background-color: #595959; -fx-background-radius: 15;" />
+                  <ListView id="listView" layoutX="3.0" layoutY="85.0" prefHeight="137.0" prefWidth="161.0" style="-fx-background-radius: 5;" />
+                  <Button id="main-Create" layoutX="20.0" layoutY="235.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="128.0" style="-fx-background-color: #2D2D2D; -fx-background-radius: 10;" text="create" textFill="WHITE" />
+                  <Button id="main-delete" layoutX="20.0" layoutY="266.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="128.0" style="-fx-background-color: #2D2D2D; -fx-background-radius: 10;" text="delete" textFill="WHITE" />
+                  <Button id="main-edit" layoutX="20.0" layoutY="298.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="128.0" style="-fx-background-color: #2D2D2D; -fx-background-radius: 10;" text="edit" textFill="WHITE" />
+                  <Button id="main logout" layoutX="14.0" layoutY="349.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="140.0" style="-fx-background-color: #2D2D2D;" text="log out" textFill="WHITE">
+                     <font>
+                        <Font size="14.0" />
+                     </font></Button>
                </children>
             </AnchorPane>
          </children></AnchorPane>
