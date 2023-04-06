@@ -1,7 +1,8 @@
 {
     "java.project.referencedLibraries": [
         "lib/**/*.jar",
-        "/Users/rohitdeshmukh/Java/javafx-sdk-19.0.2.1/lib/**/*.jar"
+        "/Users/rohitdeshmukh/Java/javafx-sdk-19.0.2.1/lib/**/*.jar",
+        "/Users/rohitdeshmukh/Java/javafx-sdk-20/lib/**/*.jar"
     ],
     "java.debug.settings.onBuildFailureProceed": true
 }

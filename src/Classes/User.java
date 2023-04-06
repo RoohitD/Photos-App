@@ -1,6 +1,5 @@
 package Classes;
 
-
 /**
  * A User class for every user who runs the app
  * 
