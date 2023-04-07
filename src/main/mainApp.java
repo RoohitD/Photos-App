@@ -4,6 +4,7 @@ import java.io.IOException;
 
 import javax.print.DocFlavor.URL;
 
+import Classes.User;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -13,7 +14,10 @@ import javafx.stage.Stage;
 public class mainApp extends Application {
 
     public static void main(String[] args) {
-            launch(args);
+
+        User stock = new User("stock", "stock");
+
+        launch(args);
     }
     
     @Override
@@ -22,7 +26,7 @@ public class mainApp extends Application {
             loader.setLocation(getClass().getResource("/scene/loginPage.fxml"));
             
             Pane root = (Pane)loader.load();
-            primaryStage.setTitle("Login");
+            primaryStage.setTitle("Photo");
             primaryStage.setScene(new Scene(root, 600, 400));
             primaryStage.show();
         

@@ -7,19 +7,24 @@ import java.util.ResourceBundle;
 import Classes.User;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.Hyperlink;
 import javafx.scene.control.TextField;
 import javafx.scene.control.Alert.AlertType;
+import javafx.stage.Stage;
 
 public class loginPage_Controller implements Initializable {
 
-    @FXML private TextField login_username;
-    @FXML private TextField login_password;
+    @FXML private TextField login_Username;
+    @FXML private TextField login_Password;
     @FXML Button login_Login;
-    @FXML Button login_cancel;
-
+    @FXML Button login_Cancel;
+    @FXML Hyperlink login_signUp;
 
 
     @Override
@@ -28,15 +33,30 @@ public class loginPage_Controller implements Initializable {
     }
 
     public void loginButtonHandler(ActionEvent e) throws IOException {
-        String username = login_username.getText().trim(); 
-        String password = login_password.getText().trim();
+        String username = login_Username.getText().trim(); 
+        String password = login_Password.getText().trim();
 
         // Alert for Invalid 
         Alert nodataAlert = new Alert(AlertType.ERROR);
         nodataAlert.setHeaderText("Input not valid");
         nodataAlert.setContentText("Account does not exist");
 
-        User user = new User(username, password);
+        if(User.verifyUser(username, password)){
+            Stage stage = (Stage) login_Login.getScene().getWindow();
+            Parent root = FXMLLoader.load(getClass().getResource("/scene/upload-image-page.fxml"));
+            Scene scene = new Scene(root);
+            stage.setScene(scene);
+        }  else {
+            nodataAlert.showAndWait();
+        }
+        
+    }
 
+    public void handleHyperlinkClick(ActionEvent event) throws Exception {
+        Hyperlink hyperlink = (Hyperlink) event.getSource();
+        Stage stage = (Stage) hyperlink.getScene().getWindow();
+        Parent root = FXMLLoader.load(getClass().getResource("/scene/signUpPage.fxml"));
+        Scene scene = new Scene(root);
+        stage.setScene(scene);
     }
 }

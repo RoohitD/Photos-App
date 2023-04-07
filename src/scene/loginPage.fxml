@@ -5,12 +5,12 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.Pane?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #222222;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #222222;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.loginPage_Controller">
    <children>
-      <TextField alignment="CENTER" layoutX="199.0" layoutY="127.0" prefHeight="34.0" prefWidth="199.0" promptText="username" style="-fx-background-color: #595959; -fx-background-radius: 10;" />
-      <TextField alignment="CENTER" layoutX="199.0" layoutY="183.0" prefHeight="34.0" prefWidth="199.0" promptText="password" style="-fx-background-color: #595959; -fx-background-radius: 10;" />
-      <Button layoutX="314.0" layoutY="238.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="84.0" style="-fx-background-color: #5B10FB; -fx-background-radius: 10;" text="login" textFill="WHITE" />
-      <Button layoutX="199.0" layoutY="238.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="84.0" style="-fx-background-color: #5B10FB; -fx-background-radius: 10;" text="cancel" textFill="WHITE" />
-      <Hyperlink layoutX="275.0" layoutY="287.0" text="SignUp" textFill="WHITE" underline="true" />
+      <TextField fx:id="login_Username" alignment="CENTER" layoutX="199.0" layoutY="127.0" prefHeight="34.0" prefWidth="199.0" promptText="username" style="-fx-background-color: #595959; -fx-background-radius: 10;" />
+      <TextField fx:id="login_Password" alignment="CENTER" layoutX="199.0" layoutY="183.0" prefHeight="34.0" prefWidth="199.0" promptText="password" style="-fx-background-color: #595959; -fx-background-radius: 10;" />
+      <Button fx:id="login_Login" layoutX="314.0" layoutY="238.0" mnemonicParsing="false" onAction="#loginButtonHandler" prefHeight="26.0" prefWidth="84.0" style="-fx-background-color: #5B10FB; -fx-background-radius: 10;" text="login" textFill="WHITE" />
+      <Button fx:id="login_Cancel" layoutX="199.0" layoutY="238.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="84.0" style="-fx-background-color: #5B10FB; -fx-background-radius: 10;" text="cancel" textFill="WHITE" />
+      <Hyperlink fx:id="login_signUp" layoutX="275.0" layoutY="287.0" onAction="#handleHyperlinkClick" text="SignUp" textFill="WHITE" underline="true" />
    </children>
 </Pane>
