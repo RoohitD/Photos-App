@@ -16,7 +16,6 @@ public class mainApp extends Application {
     public static void main(String[] args) {
 
         User stock = new User("stock", "stock");
-
         launch(args);
     }
     

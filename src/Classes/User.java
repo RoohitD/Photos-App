@@ -28,6 +28,15 @@ public class User {
         userList.add(this);
     }
 
+    public static User getUser(String username, String password){
+        for (User user : userList) {
+            if (user.getUsername().equals(username) && user.getPassword().equals(password)) {
+                return user;
+            }
+        }
+        return null;
+    }
+
     /**
      * returns the username of the user
      * @return
@@ -71,6 +80,10 @@ public class User {
 
     public String toString(){
         return "\nUsername: " + username + "\nPassword: " + password;
+    }
+
+    public int photoLength(){
+        return photoList.size();
     }
 
 }

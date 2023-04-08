@@ -42,7 +42,7 @@ public class signUpPage_Controller {
         } else {
             User user = new User(username, password);
             Stage stage = (Stage) signUp_Create.getScene().getWindow();
-            Parent root = FXMLLoader.load(getClass().getResource("/scene/upload-image-page.fxml"));
+            Parent root = FXMLLoader.load(getClass().getResource("/scene/loginPage.fxml"));
             Scene scene = new Scene(root);
             stage.setScene(scene);
         }   

@@ -25,7 +25,7 @@ public class loginPage_Controller implements Initializable {
     @FXML Button login_Login;
     @FXML Button login_Cancel;
     @FXML Hyperlink login_signUp;
-
+    static User currentUser;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -42,6 +42,7 @@ public class loginPage_Controller implements Initializable {
         nodataAlert.setContentText("Account does not exist");
 
         if(User.verifyUser(username, password)){
+            currentUser = User.getUser(username, password);
             Stage stage = (Stage) login_Login.getScene().getWindow();
             Parent root = FXMLLoader.load(getClass().getResource("/scene/upload-image-page.fxml"));
             Scene scene = new Scene(root);
