@@ -40,11 +40,16 @@ public class signUpPage_Controller {
         if(username.isEmpty() || password.isEmpty()){
             invalidAlert.showAndWait();
         } else {
-            User user = new User(username, password);
-            Stage stage = (Stage) signUp_Create.getScene().getWindow();
-            Parent root = FXMLLoader.load(getClass().getResource("/scene/loginPage.fxml"));
-            Scene scene = new Scene(root);
-            stage.setScene(scene);
+            try {
+                User user = new User(username, password);
+                Stage stage = (Stage) signUp_Create.getScene().getWindow();
+                Parent root = FXMLLoader.load(getClass().getResource("/scene/loginPage.fxml"));
+                Scene scene = new Scene(root);
+                stage.setScene(scene);
+            } catch (Exception e1) {
+                invalidAlert.setContentText(e1.toString());
+                invalidAlert.showAndWait();
+            }
         }   
     }
     

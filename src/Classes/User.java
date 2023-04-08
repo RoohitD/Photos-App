@@ -25,7 +25,11 @@ public class User {
     public User(String username, String password){
         this.username = username;
         this.password = password;
-        userList.add(this);
+        if(!checkUser(username, password)){
+            userList.add(this);
+        } else {
+            throw new IllegalArgumentException();
+        }
     }
 
     public static User getUser(String username, String password){
