@@ -54,6 +54,41 @@ public class User {
     }
 
     /**
+     * 
+     * @param username take a username to compare in database
+     * @return boolean if it match
+     */
+    public boolean checkUsername(String username){
+        String newUser = username;
+        boolean returnVal = true;
+        for(int x = 0; x < userList.size(); x++){
+            if (userList.get(x).getUsername().equals(newUser)){
+                returnVal = false;
+            }
+        }
+        return returnVal;
+    }
+
+
+    /**
+     * 
+     * @param username take a username to check in system
+     * @param password take a passport to chekc in system if its exist
+     * @return boolean based on if the username and passport matches
+     */
+    public boolean checkUser(String username, String password){
+        boolean credential = false;
+        for(int x = 0; x < userList.size(); x++){
+            if (userList.get(x).getUsername().equals(username) && userList.get(x).getPassword().equals(password)){
+                credential = true;
+                break;
+            }
+        }
+        return credential;
+    }
+     
+
+    /**
      * verifies if the user type matches the current user
      * @param user
      * @return
