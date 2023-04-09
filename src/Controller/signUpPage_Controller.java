@@ -12,6 +12,8 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.Alert.AlertType;
 import javafx.stage.Stage;
 
+
+
 public class signUpPage_Controller {
 
     @FXML TextField signUp_username;
@@ -19,6 +21,8 @@ public class signUpPage_Controller {
     @FXML Button signUp_Cancel;
     @FXML Button signUp_Create;
 
+
+    
      public void signUp_cancel_Handler(ActionEvent e) throws Exception {
         Stage stage = (Stage) signUp_Cancel.getScene().getWindow();
         Parent root = FXMLLoader.load(getClass().getResource("/scene/loginPage.fxml"));
@@ -27,7 +31,6 @@ public class signUpPage_Controller {
     }
     
 
-    // To do: Check if the username & password are not the same as one of the previous user
     public void signUp_create_Handler(ActionEvent e) throws Exception {
 
         String username = signUp_username.getText().trim();
@@ -41,7 +44,7 @@ public class signUpPage_Controller {
             invalidAlert.showAndWait();
         } else {
             try {
-                User user = new User(username, password);
+                new User(username, password);
                 Stage stage = (Stage) signUp_Create.getScene().getWindow();
                 Parent root = FXMLLoader.load(getClass().getResource("/scene/loginPage.fxml"));
                 Scene scene = new Scene(root);

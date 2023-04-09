@@ -44,7 +44,7 @@ public class loginPage_Controller implements Initializable {
         if(User.verifyUser(username, password)){
             currentUser = User.getUser(username, password);
             Stage stage = (Stage) login_Login.getScene().getWindow();
-            Parent root = FXMLLoader.load(getClass().getResource("/scene/upload-image-page.fxml"));
+            Parent root = FXMLLoader.load(getClass().getResource("/scene/mainPage.fxml"));
             Scene scene = new Scene(root);
             stage.setScene(scene);
         }  else {
