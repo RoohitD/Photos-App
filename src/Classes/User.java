@@ -1,7 +1,12 @@
 package Classes;
 
 import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.ArrayList;
+import java.util.Scanner;
 
 /**
  * A User class for every user who runs the app
@@ -27,6 +32,7 @@ public class User {
         this.password = password;
         if(!checkUser(username, password)){
             userList.add(this);
+
         } else {
             throw new IllegalArgumentException();
         }
@@ -118,11 +124,50 @@ public class User {
     }   
 
     public String toString(){
-        return "\nUsername: " + username + "\nPassword: " + password;
+        return username + "\n" + password + "\n";
     }
 
     public int photoLength(){
         return photoList.size();
+    }
+
+    public static void writeList(){
+        for (int i = 0; i < userList.size(); i++) {
+            System.out.println(userList.get(i));
+        }
+    }
+
+    public static void writeToFile(){
+            try {
+                // NOTE: Change the pathname of the file
+                PrintWriter oos = new PrintWriter(new File("src/main/Users.txt"));
+    
+                for(int i = 0; i < userList.size(); i++){
+                    oos.print(((User) userList.get(i)).toString());
+                }
+                oos.close();
+            }  catch (IOException e3){
+                System.out.println("File Not Found. (Write)");
+            }
+    }
+
+    public static void readFromFile(){
+        try{
+            File file = new File("src/main/Users.txt");
+
+            if(file.length() != 0){
+                Scanner inFile = new Scanner(new FileReader(file));
+                while (inFile.hasNext()){
+                    String user = inFile.nextLine();
+                    String pass = inFile.nextLine();
+                    userList.add(new User(user, pass));
+                }
+                inFile.close();
+            }
+        } catch(FileNotFoundException e1){
+            System.out.println("File Does not Exist. (Read)");
+        }
+
     }
 
 }

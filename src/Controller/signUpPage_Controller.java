@@ -45,6 +45,7 @@ public class signUpPage_Controller {
         } else {
             try {
                 new User(username, password);
+                User.writeToFile();
                 Stage stage = (Stage) signUp_Create.getScene().getWindow();
                 Parent root = FXMLLoader.load(getClass().getResource("/scene/loginPage.fxml"));
                 Scene scene = new Scene(root);

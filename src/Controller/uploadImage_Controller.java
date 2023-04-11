@@ -53,7 +53,7 @@ public class uploadImage_Controller {
         invalidAlert.setContentText("Image does not exist or isn't valid");
 
         Stage stage = (Stage) ((Button) uploadImage_Button).getScene().getWindow();
-        if(selectedFile != null && !photoCaption.isEmpty() && !photoTag.isEmpty()){
+        if(selectedFile != null && (!photoCaption.isEmpty() && !photoTag.isEmpty())){
             loginPage_Controller.currentUser.addPhoto(photoCaption, selectedFile, null);
             System.out.println(loginPage_Controller.currentUser.photoLength());
             //Stage stage = (Stage) login_Login.getScene().getWindow();
@@ -66,7 +66,10 @@ public class uploadImage_Controller {
     }
 
     public void uploadCancel_Handler(ActionEvent e) throws Exception {
-
+        Stage stage = (Stage) upload_Cancel.getScene().getWindow();
+        Parent root = FXMLLoader.load(getClass().getResource("/scene/mainPage.fxml"));
+        Scene scene = new Scene(root);
+        stage.setScene(scene);
     }
 
 
