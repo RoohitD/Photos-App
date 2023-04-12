@@ -1,6 +1,7 @@
 package Controller;
 
 import java.io.File;
+import java.util.Date;
 
 import Classes.Photo;
 import javafx.event.ActionEvent;
@@ -13,6 +14,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.control.Alert.AlertType;
+import javafx.scene.image.Image;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 
@@ -32,8 +34,6 @@ public class uploadImage_Controller {
         photoCaption = imageCaption_TF.getText();
         photoTag = imageTag_TF.getText();
 
-        
-
         Stage stage = (Stage) ((Button) addImage_Button).getScene().getWindow();
         
         FileChooser fileChooser = new FileChooser();
@@ -43,7 +43,6 @@ public class uploadImage_Controller {
         selectedFile = fileChooser.showOpenDialog(stage);
         upload_FileName.setText(selectedFile.getName());
 
-        
     }
 
     public void uploadImage_Handler(ActionEvent e) throws Exception {
@@ -53,13 +52,15 @@ public class uploadImage_Controller {
         invalidAlert.setContentText("Image does not exist or isn't valid");
 
         Stage stage = (Stage) ((Button) uploadImage_Button).getScene().getWindow();
+
         if(selectedFile != null && (!photoCaption.isEmpty() && !photoTag.isEmpty())){
-            loginPage_Controller.currentUser.addPhoto(photoCaption, selectedFile, null);
-            System.out.println(loginPage_Controller.currentUser.photoLength());
-            //Stage stage = (Stage) login_Login.getScene().getWindow();
-            Parent root = FXMLLoader.load(getClass().getResource("/scene/upload-image-page.fxml"));
+
+            loginPage_Controller.currentUser.addPhoto(photoCaption, selectedFile, new Date(selectedFile.lastModified()),null);
+            System.out.println(new Date(selectedFile.lastModified()));
+            Parent root = FXMLLoader.load(getClass().getResource("/scene/mainPage.fxml"));
             Scene scene = new Scene(root);
             stage.setScene(scene);
+
         } else {
             invalidAlert.showAndWait();
         }  

@@ -3,18 +3,17 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ListView?>
 <?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.ColumnConstraints?>
-<?import javafx.scene.layout.GridPane?>
-<?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 
 <SplitPane dividerPositions="0.2968227424749164" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #222222;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.mainPage_Controller">
    <items>
       <AnchorPane prefHeight="398.0" prefWidth="155.0" style="-fx-background-color: #222222;">
          <children>
-            <TextField layoutX="3.0" layoutY="61.0" prefHeight="26.0" prefWidth="124.0" style="-fx-background-radius: 10; -fx-background-color: #595959;" text="search" />
+            <TextField layoutX="3.0" layoutY="61.0" prefHeight="26.0" prefWidth="124.0" promptText="search" style="-fx-background-radius: 10; -fx-background-color: #595959;" />
             <Button fx:id="uploadButton" layoutX="14.0" layoutY="6.0" mnemonicParsing="false" onAction="#uploadButton_Handler" prefHeight="47.0" prefWidth="129.0" style="-fx-background-color: #5B10FB; -fx-background-radius: 10;" text="upload" textFill="WHITE">
                <font>
                   <Font size="14.0" />
@@ -30,18 +29,12 @@
       </AnchorPane>
       <AnchorPane prefHeight="160.0" prefWidth="100.0">
          <children>
-            <GridPane layoutX="-4.0" layoutY="-1.0" prefHeight="402.0" prefWidth="432.0">
-              <columnConstraints>
-                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-              </columnConstraints>
-              <rowConstraints>
-                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-              </rowConstraints>
-            </GridPane>
+            <TableView fx:id="mainPage_Table" prefHeight="398.0" prefWidth="417.0" style="-fx-background-color: #222222;">
+              <columns>
+                <TableColumn fx:id="tableImage" prefWidth="268.0" text="Image" />
+                <TableColumn fx:id="tableCaption" minWidth="0.0" prefWidth="148.0" text="Caption" />
+              </columns>
+            </TableView>
          </children>
       </AnchorPane>
    </items>

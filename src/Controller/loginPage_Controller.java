@@ -17,6 +17,7 @@ import javafx.scene.control.Hyperlink;
 import javafx.scene.control.TextField;
 import javafx.scene.control.Alert.AlertType;
 import javafx.stage.Stage;
+import main.utility;
 
 public class loginPage_Controller implements Initializable {
 
@@ -25,7 +26,7 @@ public class loginPage_Controller implements Initializable {
     @FXML Button login_Login;
     @FXML Button login_Cancel;
     @FXML Hyperlink login_signUp;
-    static User currentUser;
+    public static User currentUser;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -43,6 +44,14 @@ public class loginPage_Controller implements Initializable {
 
         if(User.verifyUser(username, password)){
             currentUser = User.getUser(username, password);
+            if(currentUser.getUsername().compareTo("stock") == 0){
+                utility.loadPhotosFromFolder("src/stock");
+            } else {
+                System.out.println("Not a stock user");
+                // utilitiy.loadPhotosFromFolder("Desktop/" + currentUser.getUsername());
+            }
+            
+
             Stage stage = (Stage) login_Login.getScene().getWindow();
             Parent root = FXMLLoader.load(getClass().getResource("/scene/mainPage.fxml"));
             Scene scene = new Scene(root);

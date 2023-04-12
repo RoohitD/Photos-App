@@ -6,7 +6,10 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.Scanner;
+
+import javafx.scene.image.Image;
 
 /**
  * A User class for every user who runs the app
@@ -17,8 +20,8 @@ public class User {
     
     private String username;
     private String password;
-    private static ArrayList<User> userList = new ArrayList<User>();
-    private ArrayList<Photo> photoList = new ArrayList<Photo>();
+    public static ArrayList<User> userList = new ArrayList<User>();
+    public ArrayList<Photo> photoList = new ArrayList<Photo>();
     private ArrayList<Album> albumList = new ArrayList<Album>();
 
 
@@ -113,8 +116,8 @@ public class User {
         return false;
     }
 
-    public void addPhoto(String caption, File image, String[] tags){
-        Photo photo = new Photo(caption, image, tags);
+    public void addPhoto(String caption, File image, Date date, String[] tags){
+        Photo photo = new Photo(caption, image, date, tags);
         photoList.add(photo);
     }
 
