@@ -1,6 +1,7 @@
 package Controller;
 
 import java.io.File;
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -38,9 +39,31 @@ public class mainPage_Controller implements Initializable{
 
         if(list.isEmpty()){
             list.addAll(loginPage_Controller.currentUser.photoList);
-            mainPage_Table.setItems(list);
         }
+        mainPage_Table.setItems(list);
 
+        
+        mainPage_Table.setOnMouseClicked(event -> {
+            if (event.getClickCount() == 1) {
+               try {
+                mainPage_Table.getSelectionModel().getSelectedItem();
+                showItem();
+               } catch (IOException e) {
+                
+               }
+            }
+        });
+
+    }
+
+    public void showItem() throws IOException{
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/scene/imagePreview.fxml"));
+        Parent root = loader.load();
+        Scene scene = new Scene(root);
+        Stage stage = new Stage();
+        stage.setTitle("Image Preview");
+        stage.setScene(scene);
+        stage.show();
     }
 
     public void uploadButton_Handler(ActionEvent e) throws Exception {
