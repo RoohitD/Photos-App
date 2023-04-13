@@ -6,6 +6,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 import Classes.Photo;
+import Classes.User;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -15,10 +16,12 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.TableCell;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 
 public class mainPage_Controller implements Initializable{
@@ -36,6 +39,25 @@ public class mainPage_Controller implements Initializable{
     public void initialize(URL location, ResourceBundle resources) {
         tableCaption.setCellValueFactory(new PropertyValueFactory<Photo, String>("caption"));
         tableImage.setCellValueFactory(new PropertyValueFactory<Photo, File>("image"));
+        tableImage.setCellFactory(column -> {
+            return new TableCell<Photo, File>() {
+                private final ImageView imageView = new ImageView();
+                
+                @Override
+                protected void updateItem(File file, boolean empty) {
+                    super.updateItem(file, empty);
+                    if (file == null || empty) {
+                        setGraphic(null);
+                    } else {
+                        Image image = new Image(file.toURI().toString());
+                        imageView.setImage(image);
+                        imageView.setFitWidth(150); // set the width and height of the image view
+                        imageView.setFitHeight(150);
+                        setGraphic(imageView);
+                    }
+                }
+            };
+        });
 
         if(list.isEmpty()){
             list.addAll(loginPage_Controller.currentUser.photoList);
@@ -44,7 +66,7 @@ public class mainPage_Controller implements Initializable{
 
         
         mainPage_Table.setOnMouseClicked(event -> {
-            if (event.getClickCount() == 1) {
+            if (event.getClickCount() == 2) {
                try {
                 mainPage_Table.getSelectionModel().getSelectedItem();
                 showItem();
@@ -53,7 +75,6 @@ public class mainPage_Controller implements Initializable{
                }
             }
         });
-
     }
 
     public void showItem() throws IOException{
@@ -75,6 +96,7 @@ public class mainPage_Controller implements Initializable{
 
     public void logoutButton_Handler(ActionEvent e) throws Exception {
         loginPage_Controller.currentUser = null;
+        User.userList.clear();
         Stage stage = (Stage) logoutButton.getScene().getWindow();
         Parent root = FXMLLoader.load(getClass().getResource("/scene/loginPage.fxml"));
         Scene scene = new Scene(root);

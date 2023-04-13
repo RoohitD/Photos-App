@@ -1,5 +1,6 @@
 package Classes;
 import java.io.File;
+import java.io.Serializable;
 import java.util.Date;
 
 import javafx.scene.image.Image;

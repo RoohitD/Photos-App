@@ -31,8 +31,8 @@
          <children>
             <TableView fx:id="mainPage_Table" prefHeight="398.0" prefWidth="417.0" style="-fx-background-color: #222222;">
               <columns>
-                <TableColumn fx:id="tableImage" prefWidth="268.0" text="Image" />
-                <TableColumn fx:id="tableCaption" minWidth="0.0" prefWidth="148.0" text="Caption" />
+                <TableColumn fx:id="tableImage" prefWidth="155.0" text="Image" />
+                <TableColumn fx:id="tableCaption" minWidth="0.0" prefWidth="261.0" text="Caption" />
               </columns>
             </TableView>
          </children>

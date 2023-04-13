@@ -2,27 +2,32 @@ package Classes;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.io.IOException;
+import java.io.ObjectOutputStream;
 import java.io.PrintWriter;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.Scanner;
 
 import javafx.scene.image.Image;
+import main.utility;
 
 /**
  * A User class for every user who runs the app
  * 
  *  Author: Rohit Deshmukh
  */
-public class User {
+public class User implements Serializable {
     
     private String username;
     private String password;
     public static ArrayList<User> userList = new ArrayList<User>();
     public ArrayList<Photo> photoList = new ArrayList<Photo>();
     private ArrayList<Album> albumList = new ArrayList<Album>();
+
 
 
     /**
@@ -35,7 +40,7 @@ public class User {
         this.password = password;
         if(!checkUser(username, password)){
             userList.add(this);
-
+            utility.writeUsersToFile(userList);
         } else {
             throw new IllegalArgumentException();
         }
@@ -91,12 +96,15 @@ public class User {
      */
     public boolean checkUser(String username, String password){
         boolean credential = false;
-        for(int x = 0; x < userList.size(); x++){
-            if (userList.get(x).getUsername().equals(username) && userList.get(x).getPassword().equals(password)){
-                credential = true;
-                break;
+        if(userList != null){
+            for(int x = 0; x < userList.size(); x++){
+                if (userList.get(x).getUsername().equals(username) && userList.get(x).getPassword().equals(password)){
+                    credential = true;
+                    break;
+                }
             }
         }
+        
         return credential;
     }
      
@@ -119,6 +127,7 @@ public class User {
     public void addPhoto(String caption, File image, Date date, String[] tags){
         Photo photo = new Photo(caption, image, date, tags);
         photoList.add(photo);
+        //utility.writeUsersToFile(userList);
     }
 
     public void createAlbum(String name, Photo[] photo){
@@ -154,23 +163,6 @@ public class User {
             }
     }
 
-    public static void readFromFile(){
-        try{
-            File file = new File("src/main/Users.txt");
-
-            if(file.length() != 0){
-                Scanner inFile = new Scanner(new FileReader(file));
-                while (inFile.hasNext()){
-                    String user = inFile.nextLine();
-                    String pass = inFile.nextLine();
-                    userList.add(new User(user, pass));
-                }
-                inFile.close();
-            }
-        } catch(FileNotFoundException e1){
-            System.out.println("File Does not Exist. (Read)");
-        }
-
-    }
+    
 
 }

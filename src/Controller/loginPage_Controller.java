@@ -42,6 +42,8 @@ public class loginPage_Controller implements Initializable {
         nodataAlert.setHeaderText("Input not valid");
         nodataAlert.setContentText("Account does not exist");
 
+
+        
         if(User.verifyUser(username, password)){
             currentUser = User.getUser(username, password);
             if(currentUser.getUsername().compareTo("stock") == 0){

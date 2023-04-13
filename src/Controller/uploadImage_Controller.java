@@ -1,6 +1,7 @@
 package Controller;
 
 import java.io.File;
+import java.io.FileReader;
 import java.util.Date;
 
 import Classes.Photo;
@@ -17,6 +18,7 @@ import javafx.scene.control.Alert.AlertType;
 import javafx.scene.image.Image;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
+import main.mainApp;
 
 public class uploadImage_Controller {
     @FXML Button uploadImage_Button;
@@ -56,11 +58,9 @@ public class uploadImage_Controller {
         if(selectedFile != null && (!photoCaption.isEmpty() && !photoTag.isEmpty())){
 
             loginPage_Controller.currentUser.addPhoto(photoCaption, selectedFile, new Date(selectedFile.lastModified()),null);
-            System.out.println(new Date(selectedFile.lastModified()));
             Parent root = FXMLLoader.load(getClass().getResource("/scene/mainPage.fxml"));
             Scene scene = new Scene(root);
             stage.setScene(scene);
-
         } else {
             invalidAlert.showAndWait();
         }  

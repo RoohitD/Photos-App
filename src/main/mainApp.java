@@ -13,12 +13,12 @@ import javafx.stage.Stage;
  
 public class mainApp extends Application {
 
+
     public static void main(String[] args) {
 
-        // Iterate over a folder to got a few images and save into the stock account photolist
-        // stock.addPhoto(STYLESHEET_CASPIAN, null, args);
-        User.readFromFile();
+        User.userList.addAll(utility.readUsersFromFiles());
         launch(args);
+        
     }
     
     @Override

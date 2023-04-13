@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.layout.Pane?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #222222;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.adminPage_Controller">
+   <children>
+      <ListView fx:id="adminUserList" layoutX="82.0" layoutY="43.0" prefHeight="226.0" prefWidth="437.0" />
+      <Button fx:id="adminCreateUser" layoutX="389.0" layoutY="290.0" mnemonicParsing="false" onAction="#adminCreateUser_Handler" prefHeight="43.0" prefWidth="129.0" style="-fx-background-color: #5B10FB; -fx-background-radius: 10;" text="create user" textFill="WHITE" />
+      <Button fx:id="adminDeleteUser" layoutX="236.0" layoutY="290.0" mnemonicParsing="false" onAction="#adminDeleteUser_Handler" prefHeight="43.0" prefWidth="129.0" style="-fx-background-color: #5B10FB; -fx-background-radius: 10;" text="delete user" textFill="WHITE" />
+      <Button fx:id="adminLogout" layoutX="82.0" layoutY="290.0" mnemonicParsing="false" onAction="#adminLogout_Handler" prefHeight="43.0" prefWidth="129.0" style="-fx-background-color: #5B10FB; -fx-background-radius: 10;" text="logout" textFill="WHITE" />
+   </children>
+</Pane>

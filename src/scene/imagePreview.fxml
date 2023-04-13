@@ -6,12 +6,11 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.Pane?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #222222;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
-    <ImageView id="image-preview-image" fitHeight="251.0" fitWidth="389.0" layoutX="106.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" />
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #222222;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.imagePreview_Controller">
+    <ImageView id="image-preview-image" fx:id="photoPreview" fitHeight="251.0" fitWidth="389.0" layoutX="106.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" />
     <Label layoutX="119.0" layoutY="278.0" prefHeight="28.0" prefWidth="102.0" text="date-time:" textFill="WHITE" />
-    <Label layoutX="245.0" layoutY="278.0" prefHeight="28.0" prefWidth="90.0" text="dd-mm-yyyy" textFill="WHITE" />
-    <Label layoutX="377.0" layoutY="278.0" prefHeight="28.0" prefWidth="78.0" text="hh:mm:ss" textFill="WHITE" />
-    <Button id="image-preview-btnSave" layoutX="464.0" layoutY="318.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="116.0" style="-fx-background-color: #5B10FB; -fx-background-radius: 10;" text="save" textFill="WHITE" />
-    <TextField id="image-preview-Caption" layoutX="53.0" layoutY="318.0" prefHeight="38.0" prefWidth="192.0" promptText="      caption" style="-fx-background-color: #595959; -fx-background-radius: 10;" />
-    <TextField id="Image-preview-tags" layoutX="266.0" layoutY="318.0" prefHeight="38.0" prefWidth="178.0" promptText="      tags" style="-fx-background-color: #595959; -fx-background-radius: 10;" />
+    <Label fx:id="date_Label" layoutX="245.0" layoutY="278.0" prefHeight="28.0" prefWidth="231.0" text="dd-mm-yyyy" textFill="WHITE" />
+    <Button id="image-preview-btnSave" fx:id="photoSave" layoutX="464.0" layoutY="318.0" mnemonicParsing="false" onAction="#photoSave_Handler" prefHeight="38.0" prefWidth="116.0" style="-fx-background-color: #5B10FB; -fx-background-radius: 10;" text="save" textFill="WHITE" />
+    <TextField id="image-preview-Caption" fx:id="photoCaption" layoutX="53.0" layoutY="318.0" prefHeight="38.0" prefWidth="192.0" promptText="      caption" style="-fx-background-color: #595959; -fx-background-radius: 10;" />
+    <TextField id="Image-preview-tags" fx:id="photoTags" layoutX="266.0" layoutY="318.0" prefHeight="38.0" prefWidth="178.0" promptText="      tags" style="-fx-background-color: #595959; -fx-background-radius: 10;" />
 </Pane>
