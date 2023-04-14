@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.Pane?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #222222;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.slideshowPage_Controller">
+   <children>
+      <ImageView fx:id="slideshowImage" fitHeight="289.0" fitWidth="446.0" layoutX="77.0" layoutY="56.0" pickOnBounds="true" preserveRatio="true" />
+      <Button fx:id="previousImageButton" layoutX="14.0" layoutY="171.0" mnemonicParsing="false" onAction="#previousImageButton_Handler" prefHeight="58.0" prefWidth="54.0" style="-fx-background-color: #5B10FB; -fx-background-radius: 10;" text="&lt;" textFill="WHITE" />
+      <Button fx:id="nextImageButton" layoutX="536.0" layoutY="171.0" mnemonicParsing="false" onAction="#nextImageButton_Handler" prefHeight="58.0" prefWidth="54.0" style="-fx-background-color: #5B10FB; -fx-background-radius: 10;" text="&gt;" textFill="WHITE" />
+   </children>
+</Pane>

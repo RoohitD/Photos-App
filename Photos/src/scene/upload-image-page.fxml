@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #222222;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.uploadImage_Controller">
+   <children>
+      <Button id="btnAddimage" fx:id="addImage_Button" layoutX="234.0" layoutY="47.0" mnemonicParsing="false" onAction="#addImage_Handler" prefHeight="40.0" prefWidth="135.0" style="-fx-background-color: #5B10FB; -fx-background-radius: 10;" text="add images" textFill="WHITE">
+         <font>
+            <Font size="14.0" />
+         </font></Button>
+      <Button id="addimage-Cancel" fx:id="upload_Cancel" layoutX="183.0" layoutY="258.0" mnemonicParsing="false" onAction="#uploadCancel_Handler" prefHeight="40.0" prefWidth="103.0" style="-fx-background-color: #5B10FB; -fx-background-radius: 10;" text="cancel" textFill="WHITE">
+         <font>
+            <Font size="14.0" />
+         </font></Button>
+      <Button id="btnUpload" fx:id="uploadPhoto_Button" layoutX="314.0" layoutY="258.0" mnemonicParsing="false" onAction="#uploadPhoto_Handler" prefHeight="40.0" prefWidth="103.0" style="-fx-background-color: #5B10FB; -fx-background-radius: 10;" text="upload" textFill="WHITE">
+         <font>
+            <Font size="14.0" />
+         </font></Button>
+      <TextField id="addImage-Caption" fx:id="imageCaption_TF" layoutX="185.0" layoutY="143.0" prefHeight="40.0" prefWidth="232.0" promptText="caption" style="-fx-background-radius: 10; -fx-background-color: #595959;" />
+      <TextField id="addImage-Caption" fx:id="imageTag_TF" layoutX="185.0" layoutY="200.0" prefHeight="40.0" prefWidth="232.0" promptText="tags" style="-fx-background-radius: 10; -fx-background-color: #595959;" />
+      <Label fx:id="upload_FileName" layoutX="70.0" layoutY="100.0" prefHeight="23.0" prefWidth="466.0" style="-fx-alignment: center;" textAlignment="CENTER" textFill="WHITE" />
+   </children>
+</AnchorPane>
