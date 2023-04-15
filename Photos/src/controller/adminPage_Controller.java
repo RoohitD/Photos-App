@@ -59,8 +59,8 @@ public class adminPage_Controller implements Initializable{
     @FXML
     void adminDeleteUser_Handler(ActionEvent event) {
         User.delete(adminUserList.getSelectionModel().getSelectedItem());
-        uList.remove(Math.abs(adminUserList.getSelectionModel().getSelectedIndex()));
         User.getUserList().remove(adminUserList.getSelectionModel().getSelectedItem());
+        uList.remove(adminUserList.getSelectionModel().getSelectedItem());
     }
 
     /**

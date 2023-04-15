@@ -154,7 +154,7 @@ public class User implements Serializable {
     */
     public void createStockAlbum(){
         ArrayList<Photo> stocks = new ArrayList<Photo>();
-        File folder = new File("src/stock");
+        File folder = new File("Photos/src/stock");
         File[] files = folder.listFiles();
         if (files != null) {
             for (File file : files) {
@@ -220,17 +220,19 @@ public class User implements Serializable {
      */
     public static void load(){
         File dir = new File(System.getProperty("user.home") + "/Desktop/user_List");
-        for(File file: dir.listFiles()){
-            try {
-                FileInputStream fileIn = new FileInputStream(file);
-                ObjectInputStream in = new ObjectInputStream(fileIn);
-                User user = (User) in.readObject();
-                userList.add(user);
-                in.close();
-                fileIn.close();
-            } catch (Exception e) {
-                System.out.println("Could load user" + e);
-            }         
+        if(dir.listFiles() != null){
+            for(File file: dir.listFiles()){
+                try {
+                    FileInputStream fileIn = new FileInputStream(file);
+                    ObjectInputStream in = new ObjectInputStream(fileIn);
+                    User user = (User) in.readObject();
+                    userList.add(user);
+                    in.close();
+                    fileIn.close();
+                } catch (Exception e) {
+                    System.out.println("Could load user" + e);
+                }         
+            }
         }
     }
 
@@ -242,7 +244,7 @@ public class User implements Serializable {
         File dir = new File(System.getProperty("user.home") + "/Desktop/user_List/" + user.username + ".ser");
         if(dir.exists()){
             dir.delete();
+            System.out.println("Successful Deletion");
         }
     }
 }
-
